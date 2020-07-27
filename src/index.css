@@ -148,6 +148,7 @@ input:focus {
 }
 
 .card {
+  display: block;
   max-width: 314px;
   margin: auto;
   width: 100%;

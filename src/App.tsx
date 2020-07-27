@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+interface Card {
+  titulo: string;
+  url: string;
+}
 
 function App() {
+  const [videos, setVideos] = useState<Card[]>([]);
+
+  function setVideo(value: Card) {
+    setVideos([
+      ...videos,
+      value,
+    ]);
+  }
+
   return (
     <main>
       <img
@@ -9,19 +23,27 @@ function App() {
         src="https://raw.githubusercontent.com/imersao-alura/aluraflix/master/src/assets/img/Logo.png"
       />
 
-      <label>
-        <input type="" />
-        <span>Título do Vídeo</span>
-      </label>
+      <form onSubmit={(event) => {
+        event.preventDefault();
+        setVideo({
+          titulo: 'Título',
+          url: 'URL do Vídeo',
+        });
+      }}>
+        <label>
+          <input type="" />
+          <span>Título do Vídeo</span>
+        </label>
 
-      <label>
-        <input type="" />
-        <span>URL do Vídeo</span>
-      </label>
+        <label>
+          <input type="" />
+          <span>URL do Vídeo</span>
+        </label>
 
-      <button>
-        Cadastrar
-      </button>
+        <button>
+          Cadastrar
+        </button>
+      </form>
 
 
       <section className="listaDeVideos">
@@ -30,12 +52,12 @@ function App() {
         </h2>
         <ul>
           {
-            [1,2,3,4,5,6].map(() => (
-              <li className="card" style={{ backgroundImage: 'https://placehold.it/1920x1080' }}>
+            videos.map(() => (
+              <a className="card" style={{ backgroundImage: 'https://placehold.it/1920x1080' }}>
                 <article>
                   <h3 className="titulo">Título do vídeo</h3>
                 </article>
-              </li>
+              </a>
             ))
           }
         </ul>
