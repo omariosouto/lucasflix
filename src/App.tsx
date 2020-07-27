@@ -5,8 +5,17 @@ interface Card {
   url: string;
 }
 
-function App() {
-  const [videos, setVideos] = useState<Card[]>([]);
+function FormField({ titulo }: { titulo?: string }): JSX.Element {
+  return (
+    <label>
+      <input type="" />
+      <span>{titulo}:</span>
+    </label>
+  );
+}
+
+function App(): JSX.Element {
+  const [videos, setVideos] = useState<Card[]>([{ titulo: 'Video 01', url: '' }]);
 
   function setVideo(value: Card) {
     setVideos([
@@ -30,10 +39,7 @@ function App() {
           url: 'URL do Vídeo',
         });
       }}>
-        <label>
-          <input type="" />
-          <span>Título do Vídeo</span>
-        </label>
+        <FormField titulo="Título" />
 
         <label>
           <input type="" />
