@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: sans-serif;
+}
+
+:root {
+  --primary: #2a7ae4;
+  --black: #000;
+  --blackLighter: #9e9e9e;
+  --grayLight: #f5f5f5;
+  --grayMedium: #e5e5e5;
+  --white: #fff;
+  --frontEnd: #6bd1ff;
+  --backEnd: #00c86f;
+}
+
+body {
+  background: #000;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+}
+
+ul {
+  padding: 0;
+}
+
+img {
+  max-width: 100%; 
+  height: auto;
+}
+
+.logo {
+  max-width: 200px;
+  margin: 50px auto;
+  display: block;
+}
+
+label {
+  color: var(--white);
+  box-sizing: border-box;
+  font-family: "Roboto",sans-serif;
+  position: relative;
+  display: block;
+}
+
+label span {
+  box-sizing: border-box;
+  font-family: "Roboto",sans-serif;
+  color: rgb(229, 229, 229);
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  left: 16px;
+  width: 100%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  transform-origin: 0% 0%;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  transition: all 0.1s ease-in-out 0s;
+  transform: scale(0.6) translateY(-10px);
+}
+
+input {
+  box-sizing: border-box;
+  font-family: "Roboto",sans-serif;
+  color: rgb(245, 245, 245);
+  display: block;
+  width: 100%;
+  height: 57px;
+  font-size: 18px;
+  border-right-style: initial;
+  border-left-style: initial;
+  border-right-color: initial;
+  border-left-color: initial;
+  margin-bottom: 45px;
+  resize: none;
+  background: rgb(83, 88, 93);
+  outline: 0px;
+  border-width: 4px 0px;
+  border-image: initial;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid rgb(83, 88, 93);
+  padding: 16px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease 0s;
+}
+
+button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  font-family: "Roboto",sans-serif;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  padding: 16px 24px;
+  outline: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity 0.3s ease 0s;
+}
+
+input:focus {
+  --primary: #2a7ae4;
+  font-family: "Roboto",sans-serif;
+  color: rgb(245, 245, 245);
+  display: block;
+  width: 100%;
+  height: 57px;
+  font-size: 18px;
+  border-right-style: initial;
+  border-left-style: initial;
+  border-right-color: initial;
+  border-left-color: initial;
+  margin-bottom: 45px;
+  resize: none;
+  background: rgb(83, 88, 93);
+  outline: 0px;
+  border-width: 4px 0px;
+  border-image: initial;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid rgb(83, 88, 93);
+  padding: 16px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease 0s;
+  border-bottom-color: var(--primary);
+}
+
+
+.listaDeVideos {
+  margin-bottom: 100px;
+}
+
+.listaDeVideos ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 16px;
+}
+
+.card {
+  max-width: 314px;
+  margin: auto;
+  width: 100%;
+  height: 197px;
+  display: block;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://placehold.it/1920x1080');
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+  opacity: 0;
+  transition: .3s;
+}
+
+.card .titulo {
+  opacity: 0;
+  transition: .3s;
+  position: absolute;
+  margin: 0;
+  left: 10px;
+  bottom: 10px;
+  z-index: 10;
+}
+
+.card:hover .titulo,
+.card:hover:after {
+  opacity: 1;
+}
