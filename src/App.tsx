@@ -1,27 +1,42 @@
 import React, { useState } from 'react';
+import { FormField } from './components/FormField';
+
+function getYouTubeId(youtubeURL: string) {
+  return youtubeURL
+    .replace(
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/,
+      '$7',
+    );
+}
 
 interface Card {
   titulo: string;
   url: string;
 }
 
-function FormField({ titulo }: { titulo?: string }): JSX.Element {
-  return (
-    <label>
-      <input type="" />
-      <span>{titulo}:</span>
-    </label>
-  );
-}
-
 function App(): JSX.Element {
-  const [videos, setVideos] = useState<Card[]>([{ titulo: 'Video 01', url: '' }]);
+  const videoInicial = {
+    titulo: 'Video 01',
+    url: 'https://www.youtube.com/watch?v=5MzOCxSWrrc',
+  }
+  const [values, setValues] = useState<Card>({ titulo: '', url: '' });
+  const [videos, setVideos] = useState<Card[]>([videoInicial]);
 
   function setVideo(value: Card) {
     setVideos([
       ...videos,
       value,
     ]);
+  }
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const name = event.target.getAttribute('name') || ''; 
+    const value = event.target.value;
+
+    setValues({
+      ...values,
+      [name]: value,
+    })
   }
 
   return (
@@ -35,18 +50,26 @@ function App(): JSX.Element {
       <form onSubmit={(event) => {
         event.preventDefault();
         setVideo({
-          titulo: 'Título',
-          url: 'URL do Vídeo',
+          titulo: values.titulo,
+          url: values.url,
         });
       }}>
-        <FormField titulo="Título" />
+        <FormField
+          label="Título"
+          name="titulo"
+          onChange={handleChange}
+          value={values.titulo}
+          type="text"
+        />
 
-        <label>
-          <input type="" />
-          <span>URL do Vídeo</span>
-        </label>
-
-        <button>
+        <FormField
+          label="URL"
+          name="url"
+          onChange={handleChange}
+          value={values.url}
+          type="text"
+        />
+        <button type="submit">
           Cadastrar
         </button>
       </form>
@@ -58,11 +81,17 @@ function App(): JSX.Element {
         </h2>
         <ul>
           {
-            videos.map(() => (
-              <a className="card" style={{ backgroundImage: 'https://placehold.it/1920x1080' }}>
-                <article>
-                  <h3 className="titulo">Título do vídeo</h3>
-                </article>
+            videos.map((video) => (
+              <a
+                href={video.url}
+                key={video.titulo}
+                className="card"
+                style={{
+                  color: 'red',
+                  backgroundImage: `url(https://img.youtube.com/vi/${getYouTubeId(video.url)}/maxresdefault.jpg)`
+                }}
+              >
+                <span className="titulo">Título do vídeo</span>
               </a>
             ))
           }

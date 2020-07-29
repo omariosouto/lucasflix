@@ -160,6 +160,7 @@ input:focus {
   background-size: cover;
   background-position: center;
   background-image: url('https://placehold.it/1920x1080');
+  overflow: hidden;
 }
 
 .card:after {
@@ -183,6 +184,7 @@ input:focus {
   left: 10px;
   bottom: 10px;
   z-index: 10;
+  font-weight: bold;
 }
 
 .card:hover .titulo,
