@@ -29,7 +29,7 @@ ul {
 }
 
 img {
-  max-width: 100%; 
+  max-width: 100%;
   height: auto;
 }
 
@@ -42,14 +42,14 @@ img {
 label {
   color: var(--white);
   box-sizing: border-box;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   position: relative;
   display: block;
 }
 
 label span {
   box-sizing: border-box;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgb(229, 229, 229);
   height: 57px;
   position: absolute;
@@ -69,7 +69,7 @@ label span {
 
 input {
   box-sizing: border-box;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgb(245, 245, 245);
   display: block;
   width: 100%;
@@ -96,7 +96,7 @@ button {
   background: transparent;
   border: 1px solid white;
   color: white;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   cursor: pointer;
   font-style: normal;
@@ -112,7 +112,7 @@ button {
 
 input:focus {
   --primary: #2a7ae4;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgb(245, 245, 245);
   display: block;
   width: 100%;
@@ -136,7 +136,6 @@ input:focus {
   border-bottom-color: var(--primary);
 }
 
-
 .listaDeVideos {
   margin-bottom: 100px;
 }
@@ -159,7 +158,6 @@ input:focus {
   position: relative;
   background-size: cover;
   background-position: center;
-  background-image: url('https://placehold.it/1920x1080');
   overflow: hidden;
 }
 
@@ -170,7 +168,7 @@ input:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
   opacity: 0;
   transition: .3s;
@@ -187,7 +185,6 @@ input:focus {
   font-weight: bold;
 }
 
-.card:hover .titulo,
-.card:hover:after {
+.card:hover .titulo, .card:hover:after {
   opacity: 1;
 }

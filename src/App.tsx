@@ -30,8 +30,8 @@ function App() {
         </h2>
         <ul>
           {
-            [1,2,3,4,5,6].map(() => (
-              <li className="card" style={{ backgroundImage: 'https://placehold.it/1920x1080' }}>
+            [1, 2, 3, 4, 5, 6].map(() => (
+              <li className="card" style={{ backgroundImage: 'url(https://placehold.it/1920x1080)' }}>
                 <article>
                   <h3 className="titulo">Título do vídeo</h3>
                 </article>
